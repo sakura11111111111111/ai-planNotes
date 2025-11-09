@@ -1,5 +1,5 @@
 // App.tsx - 主应用组件
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './store/auth';
 import { PrivateRoute } from './components/layout/PrivateRoute';
