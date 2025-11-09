@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ai-plan-notes
+  datasource:
+    url: jdbc:mysql://localhost:3306/ai_plan_notes?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    username: root
+    password: ${DB_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+  jackson:
+    time-zone: UTC
+    date-format: yyyy-MM-dd'T'HH:mm:ss'Z'
+
+jwt:
+  secret: ${JWT_SECRET:your-secret-key-change-in-production-this-should-be-at-least-256-bits-long}
+  expiration: 86400000 # 24 hours in milliseconds
+
+server:
+  port: 8080
