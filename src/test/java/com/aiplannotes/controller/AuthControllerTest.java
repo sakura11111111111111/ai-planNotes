@@ -2,7 +2,7 @@ package com.aiplannotes.controller;
 
 import com.aiplannotes.dto.LoginRequest;
 import com.aiplannotes.dto.RegisterRequest;
-import com.aiplannotes.repository.UserRepository;
+import com.aiplannotes.repository.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,9 +29,26 @@ class AuthControllerTest {
 
     @Autowired
     private UserRepository userRepository;
+    
+    @Autowired
+    private ReviewRecordRepository reviewRecordRepository;
+    
+    @Autowired
+    private AiSummaryRepository aiSummaryRepository;
+    
+    @Autowired
+    private NoteRepository noteRepository;
+    
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @BeforeEach
     void setUp() {
+        // Clean up in correct order due to foreign key constraints
+        reviewRecordRepository.deleteAll();
+        aiSummaryRepository.deleteAll();
+        noteRepository.deleteAll();
+        categoryRepository.deleteAll();
         userRepository.deleteAll();
     }
 

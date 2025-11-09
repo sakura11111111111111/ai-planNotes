@@ -8,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "notes")
@@ -47,4 +49,11 @@ public class Note {
     @Column(nullable = false)
     @UpdateTimestamp
     private Timestamp updatedAt;
+    
+    // Cascade delete for AI summaries and review records
+    @OneToOne(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true)
+    private AiSummary aiSummary;
+    
+    @OneToMany(mappedBy = "note", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ReviewRecord> reviewRecords = new ArrayList<>();
 }

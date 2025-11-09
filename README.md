@@ -2,6 +2,18 @@
 
 基于 Spring Boot 3.x 的智能复习笔记后端系统，支持用户认证、笔记管理和智能复习计划。
 
+## 🎉 Phase 2 完成！
+
+**核心业务模块已全部实现：**
+- ✅ 分类管理 (Category Management)
+- ✅ 笔记管理 (Note Management) 
+- ✅ 复习任务 (Review Tasks)
+- ✅ AI 总结 (AI Summary - V1.0 Mock)
+
+📖 **完整 API 文档**：请查看 [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+
+📋 **实现细节**：请查看 [PHASE2_IMPLEMENTATION_SUMMARY.md](./PHASE2_IMPLEMENTATION_SUMMARY.md)
+
 ## 技术栈
 
 - Java 17+
@@ -82,6 +94,10 @@ java -jar target/ai-plan-notes-1.0.0.jar
 应用将在 `http://localhost:8080` 启动。
 
 ## API 文档
+
+**完整 API 文档请查看 [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)**
+
+以下是部分示例：
 
 ### 用户认证
 
