@@ -45,3 +45,11 @@ logs/
 # Application
 application-local.yml
 application-prod.yml
+
+# Web App (Node.js / React)
+web-app/node_modules/
+web-app/dist/
+web-app/.vite/
+web-app/package-lock.json
+web-app/yarn.lock
+web-app/pnpm-lock.yaml
