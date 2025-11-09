@@ -1,11 +1,10 @@
-# 智能复习笔记 - Smart Review Notes
+# 智能复习笔记系统 - Spring Boot 后端 API
 
-完整的智能复习笔记系统，包含 Spring Boot 后端 API 和 Flutter Android 前端应用。
+智能复习笔记系统的后端 API，提供完整的笔记管理和艾宾浩斯复习算法支持。
 
-## 🎉 完整系统已实现！
+## 🎉 后端 API 已完整实现！
 
-### 后端 API（阶段 1 + 2）✅
-**核心业务模块已全部实现：**
+**核心业务模块：**
 - ✅ 用户认证 (User Authentication)
 - ✅ 分类管理 (Category Management)
 - ✅ 笔记管理 (Note Management) 
@@ -13,24 +12,12 @@
 - ✅ AI 总结 (AI Summary - V1.0 Mock)
 - ✅ 艾宾浩斯复习算法 (Ebbinghaus Review Algorithm)
 
-### Flutter Android 前端（阶段 3）✅
-**完整的用户界面已实现：**
-- ✅ 用户认证（登录、注册）
-- ✅ 今日任务列表
-- ✅ 核心复习功能（含监督机制）
-- ✅ 笔记管理（CRUD）
-- ✅ 分类管理（CRUD）
-- ✅ Material Design 3 界面
-
 📖 **API 文档**：[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
 
-📋 **后端实现细节**：[PHASE2_IMPLEMENTATION_SUMMARY.md](./PHASE2_IMPLEMENTATION_SUMMARY.md)
-
-📱 **Flutter 实现细节**：[FLUTTER_IMPLEMENTATION_SUMMARY.md](./FLUTTER_IMPLEMENTATION_SUMMARY.md)
+📋 **实现细节**：[PHASE2_IMPLEMENTATION_SUMMARY.md](./PHASE2_IMPLEMENTATION_SUMMARY.md)
 
 ## 技术栈
 
-### 后端
 - Java 17+
 - Spring Boot 3.2.0
 - Spring Data JPA
@@ -39,17 +26,8 @@
 - MySQL 8.0
 - Maven
 
-### 前端
-- Flutter 3.x
-- Dart
-- Provider (状态管理)
-- Dio (网络请求)
-- SharedPreferences (本地存储)
-- Material Design 3
-
 ## 项目结构
 
-### 后端结构
 ```
 src/main/java/com/aiplannotes/
 ├── config/           # 配置类 (Security配置)
@@ -63,55 +41,9 @@ src/main/java/com/aiplannotes/
 └── util/            # 工具类 (JWT工具)
 ```
 
-### 前端结构
-```
-flutter_app/
-├── lib/
-│   ├── config/              # 配置（API、主题）
-│   ├── models/              # 数据模型
-│   ├── services/            # API 服务层
-│   ├── providers/           # 状态管理
-│   ├── screens/             # 页面（auth, home, notes, categories, review）
-│   ├── widgets/             # 自定义组件
-│   ├── utils/               # 工具类
-│   └── main.dart            # 应用入口
-└── android/                 # Android 配置
-```
-
-## 💻 开发环境选项
-
-### 选项 1：GitHub Codespaces（推荐）☁️
-
-最简单的方式！在云端开发环境中运行：
-
-1. 点击仓库页面的 **Code** 按钮
-2. 选择 **Codespaces** → **Create codespace on main**
-3. 等待环境自动配置完成（约 3-5 分钟）
-4. 按照 [Codespaces 使用指南](./README_CODESPACES.md) 启动项目
-
-**优势**：
-- ✅ 无需本地安装任何工具
-- ✅ 自动配置 Java、Maven、Flutter、MySQL
-- ✅ 可以在浏览器中运行 Flutter Web 版本
-- ✅ 适合快速演示和测试
-
-### 选项 2：本地开发
-
-需要本地安装以下工具：
-- JDK 17+
-- Maven 3.6+
-- MySQL 8.0
-- Flutter SDK 3.0+
-
-详细步骤见下方"快速开始"部分。
-
----
-
 ## 快速开始
 
-### 后端 API
-
-#### 前置要求
+### 前置要求
 - JDK 17 或更高版本
 - Maven 3.6+
 - MySQL 8.0
@@ -155,77 +87,6 @@ mvn spring-boot:run
 ```
 
 应用将在 `http://localhost:8080` 启动。
-
-### Flutter Android 前端
-
-#### 前置要求
-- Flutter SDK 3.0+
-- Dart SDK 2.17+
-- Android SDK (API Level 21+)
-- 后端 API 运行在 localhost:8080
-
-#### 安装和运行
-
-1. 进入 Flutter 项目目录:
-
-```bash
-cd flutter_app
-```
-
-2. 安装依赖:
-
-```bash
-flutter pub get
-```
-
-3. 配置 API 地址（如果需要）:
-
-编辑 `lib/config/api_config.dart`：
-
-```dart
-// Android 模拟器
-static const String baseUrl = 'http://10.0.2.2:8080/api';
-
-// Android 真机（使用您的电脑 IP）
-// static const String baseUrl = 'http://192.168.1.100:8080/api';
-```
-
-4. 运行应用:
-
-```bash
-flutter run
-```
-
-5. 构建 APK:
-
-```bash
-flutter build apk --release
-```
-
-详细说明请查看 [flutter_app/README.md](./flutter_app/README.md)
-
-## 使用流程
-
-### 1. 启动后端 API
-```bash
-cd ai-planNotes
-mvn spring-boot:run
-```
-
-### 2. 启动 Flutter 应用
-```bash
-cd flutter_app
-flutter run
-```
-
-### 3. 使用应用
-1. 注册新账号
-2. 登录系统
-3. 创建笔记（可选择分类和监督模式）
-4. 在"今日任务"查看复习任务
-5. 开始复习并提交结果
-6. 系统根据艾宾浩斯曲线安排下次复习
-
 
 ## API 文档
 
