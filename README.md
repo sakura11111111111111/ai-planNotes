@@ -1,21 +1,36 @@
-# 智能复习笔记 - Smart Review Notes Backend
+# 智能复习笔记 - Smart Review Notes
 
-基于 Spring Boot 3.x 的智能复习笔记后端系统，支持用户认证、笔记管理和智能复习计划。
+完整的智能复习笔记系统，包含 Spring Boot 后端 API 和 Flutter Android 前端应用。
 
-## 🎉 Phase 2 完成！
+## 🎉 完整系统已实现！
 
+### 后端 API（阶段 1 + 2）✅
 **核心业务模块已全部实现：**
+- ✅ 用户认证 (User Authentication)
 - ✅ 分类管理 (Category Management)
 - ✅ 笔记管理 (Note Management) 
 - ✅ 复习任务 (Review Tasks)
 - ✅ AI 总结 (AI Summary - V1.0 Mock)
+- ✅ 艾宾浩斯复习算法 (Ebbinghaus Review Algorithm)
 
-📖 **完整 API 文档**：请查看 [API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+### Flutter Android 前端（阶段 3）✅
+**完整的用户界面已实现：**
+- ✅ 用户认证（登录、注册）
+- ✅ 今日任务列表
+- ✅ 核心复习功能（含监督机制）
+- ✅ 笔记管理（CRUD）
+- ✅ 分类管理（CRUD）
+- ✅ Material Design 3 界面
 
-📋 **实现细节**：请查看 [PHASE2_IMPLEMENTATION_SUMMARY.md](./PHASE2_IMPLEMENTATION_SUMMARY.md)
+📖 **API 文档**：[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)
+
+📋 **后端实现细节**：[PHASE2_IMPLEMENTATION_SUMMARY.md](./PHASE2_IMPLEMENTATION_SUMMARY.md)
+
+📱 **Flutter 实现细节**：[FLUTTER_IMPLEMENTATION_SUMMARY.md](./FLUTTER_IMPLEMENTATION_SUMMARY.md)
 
 ## 技术栈
 
+### 后端
 - Java 17+
 - Spring Boot 3.2.0
 - Spring Data JPA
@@ -24,8 +39,17 @@
 - MySQL 8.0
 - Maven
 
+### 前端
+- Flutter 3.x
+- Dart
+- Provider (状态管理)
+- Dio (网络请求)
+- SharedPreferences (本地存储)
+- Material Design 3
+
 ## 项目结构
 
+### 后端结构
 ```
 src/main/java/com/aiplannotes/
 ├── config/           # 配置类 (Security配置)
@@ -39,15 +63,31 @@ src/main/java/com/aiplannotes/
 └── util/            # 工具类 (JWT工具)
 ```
 
+### 前端结构
+```
+flutter_app/
+├── lib/
+│   ├── config/              # 配置（API、主题）
+│   ├── models/              # 数据模型
+│   ├── services/            # API 服务层
+│   ├── providers/           # 状态管理
+│   ├── screens/             # 页面（auth, home, notes, categories, review）
+│   ├── widgets/             # 自定义组件
+│   ├── utils/               # 工具类
+│   └── main.dart            # 应用入口
+└── android/                 # Android 配置
+```
+
 ## 快速开始
 
-### 前置要求
+### 后端 API
 
+#### 前置要求
 - JDK 17 或更高版本
 - Maven 3.6+
 - MySQL 8.0
 
-### 数据库配置
+#### 数据库配置
 
 1. 创建 MySQL 数据库:
 
@@ -64,7 +104,7 @@ export JWT_SECRET=your-secret-key-at-least-256-bits-long
 
 或者直接修改 `src/main/resources/application.yml` 文件中的配置。
 
-### 构建和运行
+#### 构建和运行
 
 1. 克隆项目:
 
@@ -85,13 +125,78 @@ mvn clean install
 mvn spring-boot:run
 ```
 
-或者运行打包后的 jar:
+应用将在 `http://localhost:8080` 启动。
+
+### Flutter Android 前端
+
+#### 前置要求
+- Flutter SDK 3.0+
+- Dart SDK 2.17+
+- Android SDK (API Level 21+)
+- 后端 API 运行在 localhost:8080
+
+#### 安装和运行
+
+1. 进入 Flutter 项目目录:
 
 ```bash
-java -jar target/ai-plan-notes-1.0.0.jar
+cd flutter_app
 ```
 
-应用将在 `http://localhost:8080` 启动。
+2. 安装依赖:
+
+```bash
+flutter pub get
+```
+
+3. 配置 API 地址（如果需要）:
+
+编辑 `lib/config/api_config.dart`：
+
+```dart
+// Android 模拟器
+static const String baseUrl = 'http://10.0.2.2:8080/api';
+
+// Android 真机（使用您的电脑 IP）
+// static const String baseUrl = 'http://192.168.1.100:8080/api';
+```
+
+4. 运行应用:
+
+```bash
+flutter run
+```
+
+5. 构建 APK:
+
+```bash
+flutter build apk --release
+```
+
+详细说明请查看 [flutter_app/README.md](./flutter_app/README.md)
+
+## 使用流程
+
+### 1. 启动后端 API
+```bash
+cd ai-planNotes
+mvn spring-boot:run
+```
+
+### 2. 启动 Flutter 应用
+```bash
+cd flutter_app
+flutter run
+```
+
+### 3. 使用应用
+1. 注册新账号
+2. 登录系统
+3. 创建笔记（可选择分类和监督模式）
+4. 在"今日任务"查看复习任务
+5. 开始复习并提交结果
+6. 系统根据艾宾浩斯曲线安排下次复习
+
 
 ## API 文档
 
