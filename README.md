@@ -78,6 +78,35 @@ flutter_app/
 └── android/                 # Android 配置
 ```
 
+## 💻 开发环境选项
+
+### 选项 1：GitHub Codespaces（推荐）☁️
+
+最简单的方式！在云端开发环境中运行：
+
+1. 点击仓库页面的 **Code** 按钮
+2. 选择 **Codespaces** → **Create codespace on main**
+3. 等待环境自动配置完成（约 3-5 分钟）
+4. 按照 [Codespaces 使用指南](./README_CODESPACES.md) 启动项目
+
+**优势**：
+- ✅ 无需本地安装任何工具
+- ✅ 自动配置 Java、Maven、Flutter、MySQL
+- ✅ 可以在浏览器中运行 Flutter Web 版本
+- ✅ 适合快速演示和测试
+
+### 选项 2：本地开发
+
+需要本地安装以下工具：
+- JDK 17+
+- Maven 3.6+
+- MySQL 8.0
+- Flutter SDK 3.0+
+
+详细步骤见下方"快速开始"部分。
+
+---
+
 ## 快速开始
 
 ### 后端 API
