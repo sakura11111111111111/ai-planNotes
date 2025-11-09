@@ -1,19 +1,18 @@
 {
   "name": "Smart Review Notes - Full Stack",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "17",
       "installMaven": "true"
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/flutter:1": {
       "version": "latest"
     }
   },
-  
-  "runServices": ["mysql"],
   
   "postCreateCommand": "bash .devcontainer/setup.sh",
   
