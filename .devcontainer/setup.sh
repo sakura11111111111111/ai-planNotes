@@ -4,7 +4,15 @@ echo "🚀 Setting up Smart Review Notes development environment..."
 
 # 等待 MySQL 启动
 echo "⏳ Waiting for MySQL to be ready..."
-sleep 10
+sleep 20
+
+# 验证 MySQL 是否就绪
+until mysql -h localhost -u aiuser -paipassword -e "SELECT 1" &> /dev/null; do
+  echo "⏳ MySQL is unavailable - sleeping"
+  sleep 5
+done
+
+echo "✅ MySQL is ready!"
 
 # 配置后端环境变量
 echo "📝 Setting up backend environment..."
